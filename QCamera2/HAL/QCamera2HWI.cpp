@@ -80,7 +80,6 @@ extern cam_capability_t *gCamCapability[MM_CAMERA_MAX_NUM_SENSORS];
 extern pthread_mutex_t gCamLock;
 volatile uint32_t gCamHalLogLevel = 1;
 extern uint8_t gNumCameraSessions;
-uint32_t QCamera2HardwareInterface::sNextJobId = 1;
 
 camera_device_ops_t QCamera2HardwareInterface::mCameraOps = {
     .set_preview_window =        QCamera2HardwareInterface::set_preview_window,
@@ -1664,6 +1663,7 @@ QCamera2HardwareInterface::QCamera2HardwareInterface(uint32_t cameraId)
       mJpegClientHandle(0),
       mJpegHandleOwner(false),
       mMetadataMem(NULL),
+      sNextJobId(1),
       mCACDoneReceived(false),
       m_bNeedRestart(false),
       mBootToMonoTimestampOffset(0),
