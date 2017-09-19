@@ -1680,18 +1680,25 @@ QCamera2HardwareInterface::QCamera2HardwareInterface(uint32_t cameraId)
     mCameraDevice.ops = &mCameraOps;
     mCameraDevice.priv = this;
 
+
+    pthread_condattr_t mCondAttr;
+
+    pthread_condattr_init(&mCondAttr);
+    pthread_condattr_setclock(&mCondAttr, CLOCK_MONOTONIC);
+
+
     pthread_mutex_init(&m_lock, NULL);
-    pthread_cond_init(&m_cond, NULL);
+    pthread_cond_init(&m_cond, &mCondAttr);
 
     m_apiResultList = NULL;
 
     pthread_mutex_init(&m_evtLock, NULL);
-    pthread_cond_init(&m_evtCond, NULL);
+    pthread_cond_init(&m_evtCond, &mCondAttr);
     memset(&m_evtResult, 0, sizeof(qcamera_api_result_t));
 
-
     pthread_mutex_init(&m_int_lock, NULL);
-    pthread_cond_init(&m_int_cond, NULL);
+    pthread_cond_init(&m_int_cond, &mCondAttr);
+    pthread_condattr_destroy(&mCondAttr);
 
     memset(m_channels, 0, sizeof(m_channels));
 
@@ -5211,10 +5218,12 @@ void QCamera2HardwareInterface::checkIntPicPending(bool JpegMemOpt, char *raw_fo
     int rc = NO_ERROR;
 
     struct timespec   ts;
-    struct timeval    tp;
-    gettimeofday(&tp, NULL);
+    struct timespec   tp;
+    if( clock_gettime(CLOCK_MONOTONIC, &tp) < 0) {
+        LOGE("Error reading the monotonic time clock, cannot use timed wait");
+    }
     ts.tv_sec  = tp.tv_sec + 5;
-    ts.tv_nsec = tp.tv_usec * 1000;
+    ts.tv_nsec = tp.tv_nsec;
 
     if (true == m_bIntJpegEvtPending ||
         (true == m_bIntRawEvtPending)) {
@@ -7107,12 +7116,10 @@ int32_t QCamera2HardwareInterface::addPreviewChannel()
         } else {
             rc = addStreamToChannel(pChannel, CAM_STREAM_TYPE_PREVIEW,
                                     preview_stream_cb_routine, this);
-#ifdef TARGET_TS_MAKEUP
-            int whiteLevel, cleanLevel;
-            if(mParameters.getTsMakeupInfo(whiteLevel, cleanLevel) == false)
-#endif
+            if (needSyncCB(CAM_STREAM_TYPE_PREVIEW) == TRUE) {
             pChannel->setStreamSyncCB(CAM_STREAM_TYPE_PREVIEW,
                     synchronous_stream_cb_routine);
+            }
         }
     }
 
@@ -7435,12 +7442,10 @@ int32_t QCamera2HardwareInterface::addZSLChannel()
     } else {
         rc = addStreamToChannel(pChannel, CAM_STREAM_TYPE_PREVIEW,
                                 preview_stream_cb_routine, this);
-#ifdef TARGET_TS_MAKEUP
-        int whiteLevel, cleanLevel;
-        if(mParameters.getTsMakeupInfo(whiteLevel, cleanLevel) == false)
-#endif
+        if (needSyncCB(CAM_STREAM_TYPE_PREVIEW) == TRUE) {
         pChannel->setStreamSyncCB(CAM_STREAM_TYPE_PREVIEW,
                 synchronous_stream_cb_routine);
+        }
     }
     if (rc != NO_ERROR) {
         LOGE("add preview stream failed, ret = %d", rc);
@@ -7556,12 +7561,10 @@ int32_t QCamera2HardwareInterface::addCaptureChannel()
             delete pChannel;
             return rc;
         }
-#ifdef TARGET_TS_MAKEUP
-        int whiteLevel, cleanLevel;
-        if(mParameters.getTsMakeupInfo(whiteLevel, cleanLevel) == false)
-#endif
+        if (needSyncCB(CAM_STREAM_TYPE_PREVIEW) == TRUE) {
         pChannel->setStreamSyncCB(CAM_STREAM_TYPE_PREVIEW,
                 synchronous_stream_cb_routine);
+        }
     //Not adding the postview stream to the capture channel if Quadra CFA is enabled.
     } else if (!mParameters.getQuadraCfa()) {
         rc = addStreamToChannel(pChannel, CAM_STREAM_TYPE_POSTVIEW,
@@ -10508,6 +10511,34 @@ bool QCamera2HardwareInterface::needDeferred(cam_stream_type_t stream_type)
 
     if (stream_type == CAM_STREAM_TYPE_VIDEO) {
         return FALSE;
+    }
+    return FALSE;
+}
+
+/*===========================================================================
+ * FUNCTION   : needSyncCB
+ *
+ * DESCRIPTION: Decide syncronous callback per stream
+ *
+ * PARAMETERS :
+ *  @stream_type: stream type
+ *
+ * RETURN     : true - if background task is needed
+ *              false -  if background task is NOT needed
+ *==========================================================================*/
+bool QCamera2HardwareInterface::needSyncCB(cam_stream_type_t stream_type)
+{
+#ifdef TARGET_TS_MAKEUP
+    int whiteLevel, cleanLevel;
+    if(mParameters.getTsMakeupInfo(whiteLevel, cleanLevel) == TRUE) {
+        return FALSE;
+    }
+#endif
+
+    char value[PROPERTY_VALUE_MAX];
+    property_get("persist.camera.preview.sync_cb", value, "1");
+    if ((atoi(value) == 1) && (stream_type == CAM_STREAM_TYPE_PREVIEW)) {
+        return TRUE;
     }
     return FALSE;
 }
