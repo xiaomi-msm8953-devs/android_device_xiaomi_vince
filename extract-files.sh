@@ -28,6 +28,15 @@ function blob_fixup() {
         vendor/lib/libFaceGrade.so)
             "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
             ;;
+        vendor/lib/libmmcamera2_iface_modules.so)
+            # Always set 0 (Off) as CDS mode in iface_util_set_cds_mode
+            sed -i -e 's|\x1d\xb3\x20\x68|\x1d\xb3\x00\x20|g' "${2}"
+            PATTERN_FOUND=$(hexdump -ve '1/1 "%.2x"' "${2}" | grep -E -o "1db30020" | wc -l)
+            if [ $PATTERN_FOUND != "1" ]; then
+                echo "Critical blob modification weren't applied on ${2}!"
+                exit;
+            fi
+            ;;
         vendor/lib/libvidhance_gyro.so)
             "${PATCHELF}" --replace-needed "android.frameworks.sensorservice@1.0.so" "android.frameworks.sensorservice@1.0-v27.so" "${2}"
             ;;
