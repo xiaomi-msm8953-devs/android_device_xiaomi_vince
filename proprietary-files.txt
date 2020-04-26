@@ -23,7 +23,6 @@ vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmibokeh_625.so
-vendor/lib/libMiWatermark.so
 vendor/lib/libmm-qcamera.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmjpeg_interface.so
@@ -46,6 +45,10 @@ vendor/lib/libvidhance.so
 vendor/lib/libvidhance_gyro.so
 vendor/lib/libXMFD_AgeGender.so
 vendor/lib/lib_lowlight.so
+
+# Camera watermark - from jasmine V11.0.8.0.QDIMIXM
+vendor/lib/libMiWatermark.so|fe09202b8283cd88f86e96a5ef52b4db94b7ade5
+vendor/lib/libft2vendor.so|1332ed2141660b9372c959ca1155575c25a73751
 
 # Camera-actuators
 vendor/lib/libactuator_vince_dw9714v_ofilm.so
