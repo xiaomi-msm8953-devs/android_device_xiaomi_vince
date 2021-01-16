@@ -27,7 +27,8 @@ include $(LOCAL_PATH)/properties.mk
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    init.recovery.qcom.rc
+    init.recovery.qcom.rc \
+    init.vince.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \
