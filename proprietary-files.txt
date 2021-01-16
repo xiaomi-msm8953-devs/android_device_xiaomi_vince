@@ -1,0 +1,15 @@
+# Not appended blobs from vince-user 8.1.0 OPM1.171019.019 V11.0.2.0.OEGMIXM release-keys
+
+# Audio ACDB
+vendor/etc/acdbdata/adsp_avs_config.acdb
+vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Handset_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_workspaceFile.qwsp
+
+# Audio firmware
+etc/firmware/tas2557_uCDSP.bin:vendor/firmware/tas2557_uCDSP.bin
