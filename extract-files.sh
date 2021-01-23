@@ -11,6 +11,9 @@ function blob_fixup() {
         vendor/lib/hw/camera.msm8953.so)
             "${PATCHELF}" --replace-needed "libui.so" "libshims_libui.so" "${2}"
             ;;
+        vendor/lib/libvidhance_gyro.so)
+            "${PATCHELF}" --replace-needed "android.frameworks.sensorservice@1.0.so" "android.frameworks.sensorservice@1.0-v27.so" "${2}"
+            ;;
         vendor/lib64/hw/gf_fingerprint.default.so \
         |vendor/lib64/libgoodixfingerprintd_binder.so \
         |vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so \
