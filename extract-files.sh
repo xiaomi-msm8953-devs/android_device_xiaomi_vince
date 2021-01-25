@@ -34,6 +34,9 @@ function blob_fixup() {
             "${PATCHELF}" --remove-needed "libsoftkeymasterdevice.so" "${2}"
             "${PATCHELF}" --remove-needed "libunwind.so" "${2}"
             ;;
+        vendor/lib64/libril-qc-hal-qmi.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-full.so" "libprotobuf-cpp-full-v29.so" "${2}"
+            ;;
     esac
 }
 
