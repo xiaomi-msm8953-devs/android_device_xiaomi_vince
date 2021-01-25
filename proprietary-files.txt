@@ -50,6 +50,12 @@ vendor/lib/lib_lowlight.so
 vendor/lib/libMiWatermark.so|fe09202b8283cd88f86e96a5ef52b4db94b7ade5
 vendor/lib/libft2vendor.so|1332ed2141660b9372c959ca1155575c25a73751
 
+# Camera provider
+vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
+vendor/lib/camera.device@1.0-impl.so:vendor/lib/camera.device@1.0-impl-v27.so
+vendor/lib/camera.device@3.2-impl.so:vendor/lib/camera.device@3.2-impl-v27.so
+vendor/lib/camera.device@3.3-impl.so:vendor/lib/camera.device@3.3-impl-v27.so
+
 # Camera-actuators
 vendor/lib/libactuator_vince_dw9714v_ofilm.so
 vendor/lib/libactuator_vince_dw9763_sunny.so
