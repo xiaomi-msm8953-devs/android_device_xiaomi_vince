@@ -19,6 +19,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    libdng_sdk.vendor \
     libshims_libui
 
 PRODUCT_COPY_FILES += \
