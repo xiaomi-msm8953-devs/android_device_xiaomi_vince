@@ -8,6 +8,9 @@
 
 function blob_fixup() {
     case "${1}" in
+        vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc)
+            sed -i 's/fps_hal/vendor.fps_hal/' "${2}"
+            ;;
         vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so \
         |vendor/lib/camera.device@1.0-impl-v27.so \
         |vendor/lib/camera.device@3.2-impl-v27.so \
