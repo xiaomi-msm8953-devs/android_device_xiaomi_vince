@@ -12,22 +12,6 @@ function blob_fixup() {
             sed -i 's/fps_hal/vendor.fps_hal/' "${2}"
             sed -i 's/group.*/& uhid/' "${2}"
             ;;
-        vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so \
-        |vendor/lib/camera.device@1.0-impl-v27.so \
-        |vendor/lib/camera.device@3.2-impl-v27.so \
-        |vendor/lib/camera.device@3.3-impl-v27.so)
-            "${PATCHELF}" --replace-needed "camera.device@1.0-impl.so" "camera.device@1.0-impl-v27.so" "${2}"
-            "${PATCHELF}" --replace-needed "camera.device@3.2-impl.so" "camera.device@3.2-impl-v27.so" "${2}"
-            "${PATCHELF}" --replace-needed "camera.device@3.3-impl.so" "camera.device@3.3-impl-v27.so" "${2}"
-            "${PATCHELF}" --replace-needed "vendor.qti.hardware.camera.device@1.0_vendor.so" "vendor.qti.hardware.camera.device@1.0.so" "${2}"
-            ;;
-        vendor/lib/hw/camera.msm8953.so)
-            "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
-            "${PATCHELF}" --replace-needed "libui.so" "libshims_libui.so" "${2}"
-            ;;
-        vendor/lib/libFaceGrade.so)
-            "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
-            ;;
         vendor/lib/libvidhance_gyro.so)
             "${PATCHELF}" --replace-needed "android.frameworks.sensorservice@1.0.so" "android.frameworks.sensorservice@1.0-v27.so" "${2}"
             ;;

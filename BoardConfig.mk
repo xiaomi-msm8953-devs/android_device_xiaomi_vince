@@ -11,6 +11,9 @@ include device/xiaomi/msm8953-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/vince
 
+# Camera
+TARGET_SUPPORT_HAL1 := false
+
 # Kernel
 TARGET_KERNEL_CONFIG := vince_defconfig
 
