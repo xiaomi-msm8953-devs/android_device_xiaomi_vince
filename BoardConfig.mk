@@ -11,6 +11,11 @@ include device/xiaomi/msm8953-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/vince
 
+# Fingerprint
+SOONG_CONFIG_XIAOMI_MSM8953_BIOMETRICS_HAL_MODULES := \
+    fingerprint,fpc \
+    gf_fingerprint,goodix
+
 # Kernel
 TARGET_KERNEL_CONFIG := vince_defconfig
 

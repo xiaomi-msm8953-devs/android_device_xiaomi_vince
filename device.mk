@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8953
 
 # Properties
 include $(LOCAL_PATH)/properties.mk
