@@ -1,0 +1,9 @@
+# Audio
+persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+ro.vendor.audio.sdk.fluencetype=fluence
+
+# Camera
+persist.vendor.camera.CDS=off
+persist.vendor.camera.video.CDS=off

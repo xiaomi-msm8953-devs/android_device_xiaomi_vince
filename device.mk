@@ -38,9 +38,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8953
 
-# Properties
-include $(LOCAL_PATH)/properties.mk
-
 # Rootdir
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
