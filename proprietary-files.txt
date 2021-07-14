@@ -825,5 +825,8 @@ vendor/lib64/libqcrilFramework.so|3d8f25d13533f6fa45a36b23feb250291b663370
 vendor/lib64/libril-qc-hal-qmi.so|9f58de2abe6a3d67a341692c5870929a66f0b8b2|bf1a176d3890eaba94a115a311f98efe1010aeed
 vendor/lib64/qcrild_librilutils.so|c23470619690a34f7442fb6b26345de5dc4de880
 
+# Sensors configs
+vendor/etc/sensors/sensor_def_qcomdev.conf
+
 # Touchscreen firmware
 etc/firmware/novatek_ts_fw.bin:vendor/firmware/novatek_ts_fw.bin
