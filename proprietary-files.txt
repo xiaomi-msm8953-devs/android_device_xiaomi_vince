@@ -1,4 +1,4 @@
-# Not appended blobs from vince-user 8.1.0 OPM1.171019.019 V11.0.2.0.OEGMIXM release-keys
+# Not appended blobs from vince-user 8.1.0 OPM1.171019.019 V11.0.3.0.OEGCNXM release-keys
 
 # Audio ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
