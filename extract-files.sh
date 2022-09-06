@@ -39,6 +39,9 @@ function blob_fixup() {
         vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
             "${PATCHELF_0_8}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
             ;;
+        vendor/lib/libMiWatermark.so)
+            "${PATCHELF}" --add-needed "libpiex-v29.so" "${2}"
+            ;;
     esac
 }
 
