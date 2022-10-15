@@ -40,7 +40,7 @@ function blob_fixup() {
             "${PATCHELF_0_8}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
             ;;
         vendor/lib/libMiWatermark.so)
-            "${PATCHELF}" --add-needed "libpiex-v29.so" "${2}"
+            grep -q "libpiex-v29.so" "${2}" || "${PATCHELF}" --add-needed "libpiex-v29.so" "${2}"
             ;;
     esac
 }
