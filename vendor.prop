@@ -7,3 +7,4 @@ ro.vendor.audio.sdk.fluencetype=fluence
 # Camera
 persist.camera.CDS=off
 persist.camera.video.CDS=off
+persist.camera.HAL3.enabled=1
