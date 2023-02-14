@@ -831,3 +831,6 @@ vendor/etc/sensors/sensor_def_qcomdev.conf
 
 # Touchscreen firmware
 etc/firmware/novatek_ts_fw.bin:vendor/firmware/novatek_ts_fw.bin
+
+# VNDK
+lib/android.frameworks.sensorservice@1.0.so:vendor/lib/android.frameworks.sensorservice@1.0-v27.so
