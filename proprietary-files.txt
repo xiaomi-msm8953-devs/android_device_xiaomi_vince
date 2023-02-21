@@ -2,6 +2,7 @@
 # FP3 Package version: Fairphone/FP3/FP3:11/8901.4.A.0010/gms-f74c58a8:user/release-keys
 # daisy Package version: daisy-user 10 QKQ1.191002.002 V11.0.18.0.QDLMIXM release-keys
 # jasmine Package version: V11.0.8.0.QDIMIXM
+# olive (Pie) Package version: Xiaomi/olive/olive:9/PKQ1.190319.001/V11.0.11.0.PCNMIXM:user/release-keys
 
 # Audio ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
@@ -823,6 +824,11 @@ vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so|c9d0251df63d8e34b6d70a
 
 # Gatekeeper - from FP3
 vendor/lib64/hw/gatekeeper.msm8953.so|83a48633d4530c45e36cfb9cd7f3d63a8a5bc122
+
+# IMS (uceService) - from olive (Pie)
+-system/app/uceShimService/uceShimService.apk:system_ext/app/uceShimService/uceShimService.apk
+system/framework/com.qualcomm.qti.uceservice-V2.0-java.jar:system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
+system/lib64/com.qualcomm.qti.uceservice@2.0.so:system_ext/lib64/com.qualcomm.qti.uceservice@2.0.so
 
 # Keystore - from FP3
 vendor/lib64/hw/keystore.msm8953.so|d760257a98254b9e87ae258e267b1a45a0ed7ecb
