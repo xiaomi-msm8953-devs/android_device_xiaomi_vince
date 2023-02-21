@@ -4,6 +4,7 @@
 # jasmine Package version: V11.0.8.0.QDIMIXM
 # mido Package version: mido-user 7.0 NRD90M V11.0.2.0.NCFMIXM release-keys
 # olive (Pie) Package version: Xiaomi/olive/olive:9/PKQ1.190319.001/V11.0.11.0.PCNMIXM:user/release-keys
+# vince (Nougat) Package version: vince-user 7.1.2 N2G47H V10.1.1.0.NEGCNFI release-keys
 
 # ADSP modules - from daisy
 vendor/lib/rfsa/adsp/dirac_resource.dar|d9b3693eab8c520ef859236b8235752188b7cba0
@@ -20,10 +21,12 @@ vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
 vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 vendor/etc/acdbdata/QRD/QRD_workspaceFile.qwsp
 
+# Audio dirac - from vince (Nougat)
+vendor/etc/diracmobile.config|86544533b92e6e76d47c769cbc93ceb3668ac398
+
 # Audio dirac - from mido
 lib/libDiracAPI_SHARED.so:vendor/lib/libDiracAPI_SHARED.so|42b49679d38eca93fead05ea06ddbdc8108fd4b1
 lib/soundfx/libdirac.so:vendor/lib/soundfx/libdirac.so|f63826a905b520fa524e4c1b147be7cf65240953
-vendor/etc/diracmobile.config|d781cd6798a7481a8f7128d144abfb2b8794212d
 
 # Audio firmware
 etc/firmware/tas2557_uCDSP.bin:vendor/firmware/tas2557_uCDSP.bin
