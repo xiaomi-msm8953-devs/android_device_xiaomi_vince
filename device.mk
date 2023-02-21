@@ -60,5 +60,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    HapticOverlay
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/vince/vince-vendor.mk)
