@@ -29,9 +29,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-
 # Security patch level
 VENDOR_SECURITY_PATCH := 2019-10-01
 
