@@ -50,7 +50,7 @@ vendor/lib/libXMFD_AgeGender.so
 vendor/lib/lib_lowlight.so
 
 # Camera watermark - from jasmine
-vendor/lib/libMiWatermark.so|fe09202b8283cd88f86e96a5ef52b4db94b7ade5
+vendor/lib/libMiWatermark.so|fe09202b8283cd88f86e96a5ef52b4db94b7ade5|f518ff1442d38a8b148d026c947e905c7734fc85
 vendor/lib/libft2vendor.so|1332ed2141660b9372c959ca1155575c25a73751
 
 # Camera provider

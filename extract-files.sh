@@ -19,7 +19,7 @@ function blob_fixup() {
             ;;
         vendor/lib/hw/camera.msm8953.so)
             "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
-            "${PATCHELF}" --replace-needed "libui.so" "libshims_libui.so" "${2}"
+            "${PATCHELF}" --replace-needed "libui.so" "libui_shim.so" "${2}"
             ;;
         vendor/lib/libFaceGrade.so)
             "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
