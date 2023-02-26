@@ -838,6 +838,13 @@ vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so|c9d0251df63d8e34b6d70a
 # Gatekeeper - from FP3
 vendor/lib64/hw/gatekeeper.msm8953.so|83a48633d4530c45e36cfb9cd7f3d63a8a5bc122
 
+# Graphics firmware - from daisy
+vendor/firmware/a506_zap.b00|c45a7b34456844f5deb73e2dce79cbfcfb9ae71c
+vendor/firmware/a506_zap.b01|374b5c4a2212b2636d5dfc2deda66b56b6bf2d03
+vendor/firmware/a506_zap.b02|b79957c47f0a6757ac1d721dbe06551508454634
+vendor/firmware/a506_zap.elf|cb36b877f9d9b6bd0765826c47b73f7f2b9f2345
+vendor/firmware/a506_zap.mdt|621df918f1d6ef0a0c3fe25c8f6a58d56af4b26a
+
 # IMS (uceService) - from olive (Pie)
 -system/app/uceShimService/uceShimService.apk:system_ext/app/uceShimService/uceShimService.apk
 system/framework/com.qualcomm.qti.uceservice-V2.0-java.jar:system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
